@@ -34,10 +34,10 @@ https://datanavigator.tistory.com/60
 
 
 
->>>>>>>>>>>> 설치하면서 유용한 명령어들
+! 설치하면서 유용한 명령어들
 
 
->>> gpu 연동 확인
+! gpu 연동 확인
 python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
 
 import tensorflow as tf
@@ -45,12 +45,12 @@ print(tf.config.list_physical_devices('GPU'))
 
 
 
->>> 우분투 삭제
+! 우분투 삭제
 wslconfig /u Ubuntu-22.04
 
 
 
->>> 버전
+! 버전
 import tensorflow as tf
 print(tf.version.VERSION)      # TensorFlow 버전
 print(tf.sysconfig.get_build_info()['cuda_version'])  # 빌드된 CUDA 버전
@@ -58,27 +58,27 @@ print(tf.sysconfig.get_build_info()['cudnn_version']) # 빌드된 cuDNN 버전
 
 
 
->>> goolge chrome 설치
+! goolge chrome 설치
 cd /tmp
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install --fix-broken -y ./google-chrome-stable_current_amd64.deb
 
 
 
->>> 커널 등록하기
+! 커널 등록하기
 conda install ipykernel -y
 python -m ipykernel install --user --name=tf-gpu --display-name "Python (tf-gpu)"
 
 
 
->>> 등록된 커널 삭제
+! 등록된 커널 삭제
 jupyter kernelspec list
 jupyter kernelspec uninstall tf-gpu
 
 
 
 
->>> 테스트 간단 학습
+! 테스트 간단 학습
 import tensorflow as tf
 import numpy as np
 
