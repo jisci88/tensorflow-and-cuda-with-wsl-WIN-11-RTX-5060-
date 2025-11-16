@@ -8,7 +8,6 @@ RTX50시리즈는 tensorflow가 정식으로 지원하지는 않는다고 함. �
 Anaconda 설치 방법
 https://datanavigator.tistory.com/62
 
-
 RTX 50 시리즈 기준 tensorflow 설치
 https://www.philgineer.com/2025/10/50605090-gpu-pytorch-tensorflow.html
 
