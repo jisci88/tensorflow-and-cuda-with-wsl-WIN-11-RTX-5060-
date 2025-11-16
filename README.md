@@ -82,22 +82,20 @@ jupyter kernelspec uninstall tf-gpu
 import tensorflow as tf
 import numpy as np
 
-# 1. 데이터 준비 (y = 2x + 3)
+
 x_train = np.array([0, 1, 2, 3, 4, 5], dtype=float)
 y_train = np.array([3, 5, 7, 9, 11, 13], dtype=float)
 
-# 2. 모델 정의 (Dense 1개, units=1)
+
 model = tf.keras.Sequential([
     tf.keras.layers.Dense(units=1, input_shape=[1])
 ])
 
-# 3. 모델 컴파일
+
 model.compile(optimizer='sgd', loss='mean_squared_error')
 
-# 4. 모델 학습
 model.fit(x_train, y_train, epochs=500, verbose=0)  # verbose=0 -> 학습 진행 표시 안함
 
-# 5. 예측
 x_test = np.array([6, 7, 8], dtype=float)
 y_pred = model.predict(x_test)
 
