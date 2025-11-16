@@ -31,3 +31,75 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-12.8/lib64
 
 우분투 한글화
 https://datanavigator.tistory.com/60
+
+
+
+>>>>>>>>>>>> 설치하면서 유용한 명령어들
+
+
+>>> gpu 연동 확인
+python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+
+import tensorflow as tf
+print(tf.config.list_physical_devices('GPU'))
+
+
+
+>>> 우분투 삭제
+wslconfig /u Ubuntu-22.04
+
+
+
+>>> 버전
+import tensorflow as tf
+print(tf.version.VERSION)      # TensorFlow 버전
+print(tf.sysconfig.get_build_info()['cuda_version'])  # 빌드된 CUDA 버전
+print(tf.sysconfig.get_build_info()['cudnn_version']) # 빌드된 cuDNN 버전
+
+
+
+>>> goolge chrome 설치
+cd /tmp
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install --fix-broken -y ./google-chrome-stable_current_amd64.deb
+
+
+
+>>> 커널 등록하기
+conda install ipykernel -y
+python -m ipykernel install --user --name=tf-gpu --display-name "Python (tf-gpu)"
+
+
+
+>>> 등록된 커널 삭제
+jupyter kernelspec list
+jupyter kernelspec uninstall tf-gpu
+
+
+
+
+>>> 테스트 간단 학습
+import tensorflow as tf
+import numpy as np
+
+# 1. 데이터 준비 (y = 2x + 3)
+x_train = np.array([0, 1, 2, 3, 4, 5], dtype=float)
+y_train = np.array([3, 5, 7, 9, 11, 13], dtype=float)
+
+# 2. 모델 정의 (Dense 1개, units=1)
+model = tf.keras.Sequential([
+    tf.keras.layers.Dense(units=1, input_shape=[1])
+])
+
+# 3. 모델 컴파일
+model.compile(optimizer='sgd', loss='mean_squared_error')
+
+# 4. 모델 학습
+model.fit(x_train, y_train, epochs=500, verbose=0)  # verbose=0 -> 학습 진행 표시 안함
+
+# 5. 예측
+x_test = np.array([6, 7, 8], dtype=float)
+y_pred = model.predict(x_test)
+
+for i, x in enumerate(x_test):
+    print(f"x={x} -> y_pred={y_pred[i][0]:.2f}")
