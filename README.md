@@ -15,9 +15,13 @@ https://www.philgineer.com/2025/10/50605090-gpu-pytorch-tensorflow.html
 => 요약.
  wsl ubuntu 22.04
  cuda 12.8 - https://developer.nvidia.com/cuda-12-8-0-download-archive (deb local에서 설치 가이드 그대로 수행), sudo apt-get install python3-pip, pip3 install nvidia-cudnn-cu12
+ 
  python 3.10
+ 
  torch 2.8.0+cu128 (Pytorch 사용 시)
+ 
  torchvision 0.23.0+cu128 (//)
+ 
  tf_nightly 2.21.0.dev20250920 ( tensorflow 사용 시 pip install tf-nightly[and-cuda])
  (출처: 위 블로그)
 
